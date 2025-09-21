@@ -1,5 +1,6 @@
 package nl.enjarai.doabarrelroll.render;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.math.MatrixStack;
 import nl.enjarai.doabarrelroll.ModMath;
@@ -7,13 +8,16 @@ import nl.enjarai.doabarrelroll.math.MagicNumbers;
 import org.joml.Vector2d;
 
 public class HorizonLineWidget extends RenderHelper {
+
     public static void render(DrawContext context, int scaledWidth, int scaledHeight, double roll, double pitch) {
         int centerX = scaledWidth / 2 - 1;
         int centerY = scaledHeight / 2 - 1;
         roll *= -MagicNumbers.TORAD;
 
         var v = new Vector2d(Math.cos(roll), Math.sin(roll));
-        var offset = new Vector2d(v).perpendicular().mul(pitch * scaledHeight * 0.007);
+
+        int fov = MinecraftClient.getInstance().options.getFov().getValue();
+        var offset = new Vector2d(v).perpendicular().mul(pitch * scaledHeight * (0.8 / fov));
 
         centerX += Math.round(offset.x);
         centerY += Math.round(offset.y);

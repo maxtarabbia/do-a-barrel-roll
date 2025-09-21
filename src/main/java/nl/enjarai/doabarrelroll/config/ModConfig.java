@@ -64,7 +64,9 @@ public class ModConfig {
         Hud hud = new Hud();
         static class Hud {
             boolean show_horizon = false;
+            boolean show_motion_vector = false;
         }
+
 
         Banking banking = new Banking();
         static class Banking {
@@ -149,6 +151,10 @@ public class ModConfig {
 
     public boolean getShowHorizon() {
         return general.hud.show_horizon;
+    }
+
+    public boolean getShowMotionVector() {
+        return general.hud.show_motion_vector;
     }
 
     public boolean getEnableBanking() {
@@ -309,6 +315,9 @@ public class ModConfig {
 
     public void setShowHorizon(boolean enabled) {
         general.hud.show_horizon = enabled;
+    }
+    public void setShowMotionVector(boolean enabled) {
+        general.hud.show_motion_vector = enabled;
     }
 
     public void setEnableBanking(boolean enabled) {

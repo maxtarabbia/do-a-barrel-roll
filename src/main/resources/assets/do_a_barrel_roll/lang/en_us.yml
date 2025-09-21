@@ -58,6 +58,8 @@ config.do_a_barrel_roll:
     .: HUD
     show_horizon: Show Horizon Widget
     show_horizon.description: Show a simple artificial horizon widget around your crosshair.
+    show_motion_vector: Show Motion Vector Widget
+    show_motion_vector.description: Show a simple motion vector widget around your crosshair.
   banking:
     .: Flight Options
     enable_banking: Enable Banking
